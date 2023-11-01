@@ -21,7 +21,8 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'start'
+    customCommand: 'start'
+    workingDir: 'client'
 - task: Docker@2
   inputs:
     containerRegistry: 'nairobi'
