@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- PART_1_and_2
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'cd client'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'client'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'start'
+
+
