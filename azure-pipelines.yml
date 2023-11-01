@@ -37,7 +37,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'client'
+    workingDir: 'server'
 - task: Npm@1
   inputs:
     command: 'custom'
