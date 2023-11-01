@@ -14,15 +14,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'cd client'
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: 'client'
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'start'
-    workingDir: 'client'
 - task: Docker@2
   inputs:
     containerRegistry: 'nairobi'
@@ -34,15 +25,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'cd server'
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: 'server'
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'start'
-    workingDir: 'server'
     
 - task: Docker@2
   inputs:
