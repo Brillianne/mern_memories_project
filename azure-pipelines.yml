@@ -32,10 +32,11 @@ steps:
     repository: 'memories_backend'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: DownloadBuildArtifacts@1
+- task: KubernetesManifest@1
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'manifests'
-    downloadPath: '$(System.ArtifactsDirectory)/manifests'
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'memories-k8s'
+    namespace: 'default'
+    manifests: 'backend-deployment.yaml'
     
