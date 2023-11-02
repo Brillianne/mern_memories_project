@@ -32,9 +32,10 @@ steps:
     repository: 'memories_backend'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: DownloadPipelineArtifact@2
+- task: DownloadBuildArtifacts@1
   inputs:
     buildType: 'current'
-    artifactName: 'manifests'
-    targetPath: '$(Pipeline.Workspace)/manifests'
+    downloadType: 'single'
+    artifactName: 'memories_frontend'
+    downloadPath: '$(System.ArtifactsDirectory)/manifests'
     
