@@ -32,19 +32,10 @@ steps:
     repository: 'memories_backend'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: KubernetesManifest@1
+- task: PublishBuildArtifacts@1
   inputs:
-    action: 'deploy'
-    connectionType: 'kubernetesServiceConnection'
-    kubernetesServiceConnection: 'memories-k8s'
-    namespace: 'default'
-    manifests: 'backend-deployment.yaml'
-- task: KubernetesManifest@1
-  inputs:
-    action: 'deploy'
-    connectionType: 'kubernetesServiceConnection'
-    kubernetesServiceConnection: 'memories-k8s'
-    namespace: 'default'
-    manifests: 'client-deployment.yaml'
+    PathtoPublish: '$(Build.SourcesDirectory)/backend-deployment.yaml'
+    ArtifactName: 'manifests'
+
     
     
